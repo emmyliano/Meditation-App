@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide SearchBar;
 import 'package:flutter_svg/svg.dart';
 import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/screens/details_screen.dart';
@@ -65,12 +65,13 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Good Mornign \nShishir",
+                    "Good Morning Emmanuel",
                     style: Theme.of(context)
                         .textTheme
-                        .display1
-                        .copyWith(fontWeight: FontWeight.w900),
+                        .headlineMedium
+                        ?.copyWith(fontWeight: FontWeight.w900),
                   ),
+
                   SearchBar(),
                   Expanded(
                     child: GridView.count(
@@ -86,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         CategoryCard(
                           title: "Kegel Exercises",
-                          svgSrc: "assets/icons/Excrecises.svg",
+                          svgSrc: "assets/icons/Excercises.svg",
                           press: () {},
                         ),
                         CategoryCard(

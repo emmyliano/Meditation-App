@@ -7,10 +7,10 @@ class CategoryCard extends StatelessWidget {
   final String title;
   final Function press;
   const CategoryCard({
-    Key key,
-    this.svgSrc,
-    this.title,
-    this.press,
+    Key? key,
+    required this.svgSrc,
+    required this.title,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class CategoryCard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: press,
+            onTap: press(),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -47,8 +47,8 @@ class CategoryCard extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
-                        .title
-                        .copyWith(fontSize: 15),
+                        .titleLarge
+                        ?.copyWith(fontSize: 15),
                   )
                 ],
               ),

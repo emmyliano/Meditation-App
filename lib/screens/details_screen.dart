@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide SearchBar;
 import 'package:flutter_svg/svg.dart';
 import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
@@ -36,8 +36,8 @@ class DetailsScreen extends StatelessWidget {
                       "Meditation",
                       style: Theme.of(context)
                           .textTheme
-                          .display1
-                          .copyWith(fontWeight: FontWeight.w900),
+                          .headlineMedium
+                          ?.copyWith(fontWeight: FontWeight.w900),
                     ),
                     SizedBox(height: 10),
                     Text(
@@ -91,8 +91,8 @@ class DetailsScreen extends StatelessWidget {
                       "Meditation",
                       style: Theme.of(context)
                           .textTheme
-                          .title
-                          .copyWith(fontWeight: FontWeight.bold),
+                          .headline6
+                          ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 20),
@@ -123,7 +123,7 @@ class DetailsScreen extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Basic 2",
-                                  style: Theme.of(context).textTheme.subtitle,
+                                  style: Theme.of(context).textTheme.titleMedium,
                                 ),
                                 Text("Start your deepen you practice")
                               ],
@@ -152,10 +152,10 @@ class SeassionCard extends StatelessWidget {
   final bool isDone;
   final Function press;
   const SeassionCard({
-    Key key,
-    this.seassionNum,
+    Key? key,
+    required this.seassionNum,
     this.isDone = false,
-    this.press,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -182,7 +182,7 @@ class SeassionCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: press,
+              onTap: press(),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
@@ -203,7 +203,7 @@ class SeassionCard extends StatelessWidget {
                     SizedBox(width: 10),
                     Text(
                       "Session $seassionNum",
-                      style: Theme.of(context).textTheme.subtitle,
+                      style: Theme.of(context).textTheme.titleSmall,
                     )
                   ],
                 ),
